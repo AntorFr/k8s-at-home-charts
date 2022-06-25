@@ -93,5 +93,3 @@ Initial releasedackages/helm/k8s-at-home/teamspeak?modal=changelog)
 - Open an [issue](https://github.com/k8s-at-home/charts/issues/new/choose)
 - Ask a [question](https://github.com/k8s-at-home/organization/discussions)
 - Join our [Discord](https://discord.gg/sTMX7Vh) community
-
-
