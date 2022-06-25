@@ -8,7 +8,7 @@ TasmoAdmin
 
 ## Source Code
 
-* <https://hub.docker.com/r/raymondmm/tasmoadmin>
+* <https://github.com/TasmoAdmin/TasmoAdmin>
 
 ## Requirements
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 ```console
 helm repo add k8s-at-home https://k8s-at-home.com/charts/
 helm repo update
-helm install teamspeak k8s-at-home/tasmoadmin
+helm install tasmoadmin k8s-at-home/tasmoadmin
 ```
 
 ## Installing the Chart
@@ -75,8 +75,8 @@ N/A
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| image.repository | string | `"raymondmm/tasmoadmin"` | image repository |
-| image.tag | string | `v1.7.0"` | image tag |
+| image.repository | string | `"ghcr.io/tasmoadmin/tasmoadmin"` | image repository |
+| image.tag | string | `v1.8.0"` | image tag |
 
 
 ## Changelog
@@ -85,7 +85,7 @@ N/A
 
 #### Added
 
-Initial releasedackages/helm/k8s-at-home/teamspeak?modal=changelog)
+Initial releasedackages/helm/k8s-at-home/tasmoadmin?modal=changelog)
 
 ## Support
 
