@@ -1,6 +1,6 @@
 # TasmoAdmim
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![AppVersion: 1.7.0](https://img.shields.io/badge/AppVersion-3.13.6-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![AppVersion: 1.8.0](https://img.shields.io/badge/AppVersion-3.13.6-informational?style=flat-square)
 
 TasmoAdmin
 
@@ -8,7 +8,7 @@ TasmoAdmin
 
 ## Source Code
 
-* <https://hub.docker.com/r/raymondmm/tasmoadmin>
+* <https://github.com/TasmoAdmin/TasmoAdmin>
 
 ## Requirements
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 ```console
 helm repo add k8s-at-home https://k8s-at-home.com/charts/
 helm repo update
-helm install teamspeak k8s-at-home/tasmoadmin
+helm install tasmoadmin k8s-at-home/tasmoadmin
 ```
 
 ## Installing the Chart
@@ -75,8 +75,8 @@ N/A
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| image.repository | string | `"raymondmm/tasmoadmin"` | image repository |
-| image.tag | string | `v1.7.0"` | image tag |
+| image.repository | string | `"ghcr.io/tasmoadmin/tasmoadmin"` | image repository |
+| image.tag | string | `v1.8.0"` | image tag |
 
 
 ## Changelog
@@ -85,7 +85,7 @@ N/A
 
 #### Added
 
-Initial releasedackages/helm/k8s-at-home/teamspeak?modal=changelog)
+Initial releasedackages/helm/k8s-at-home/tasmoadmin?modal=changelog)
 
 ## Support
 
@@ -93,5 +93,3 @@ Initial releasedackages/helm/k8s-at-home/teamspeak?modal=changelog)
 - Open an [issue](https://github.com/k8s-at-home/charts/issues/new/choose)
 - Ask a [question](https://github.com/k8s-at-home/organization/discussions)
 - Join our [Discord](https://discord.gg/sTMX7Vh) community
-
-
