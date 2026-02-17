@@ -33,8 +33,9 @@ jobs:
 
       - name: Install helm-docs
         run: |
-          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
-          sudo dpkg -i /tmp/helm-docs.deb
+          wget -q https://github.com/norwoodj/helm-docs/releases/download/v1.14.2/helm-docs_1.14.2_Linux_x86_64.tar.gz -O /tmp/helm-docs.tar.gz
+          tar -xzf /tmp/helm-docs.tar.gz -C /tmp
+          sudo mv /tmp/helm-docs /usr/local/bin/
 
       - name: Collect changes
         id: collect-changes
