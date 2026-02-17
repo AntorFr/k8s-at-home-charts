@@ -13,18 +13,13 @@ on:
 jobs:
   release:
     runs-on: ubuntu-20.04
+    permissions:
+      contents: write
     steps:
-      - name: Generate Token
-        uses: tibdex/github-app-token@v1
-        id: generate-token
-        with:
-          app_id: ${{ secrets.K8S_AT_HOME_APP_ID }}
-          private_key: ${{ secrets.K8S_AT_HOME_APP_PRIVATE_KEY }}
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          token: ${{ steps.generate-token.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Install Kubernetes tools
@@ -80,7 +75,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          token: ${{ steps.generate-token.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
           fetch-depth: 0
 
@@ -93,9 +88,9 @@ jobs:
         uses: helm/chart-releaser-action@v1.4.0
         with:
           charts_dir: charts/*
-          charts_repo_url: https://k8s-at-home.com/charts/
+          charts_repo_url: https://antorfr.github.io/k8s-at-home-charts/
         env:
-          CR_TOKEN: "${{ steps.generate-token.outputs.token }}"
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           CR_SKIP_EXISTING: "true"
 
   generate-summary:
@@ -103,18 +98,13 @@ jobs:
     runs-on: ubuntu-20.04
     needs:
       - release
+    permissions:
+      contents: write
     steps:
-      - name: Generate Token
-        uses: tibdex/github-app-token@v1
-        id: generate-token
-        with:
-          app_id: ${{ secrets.K8S_AT_HOME_APP_ID }}
-          private_key: ${{ secrets.K8S_AT_HOME_APP_PRIVATE_KEY }}
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          token: ${{ steps.generate-token.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           ref: master
           fetch-depth: 0
 
