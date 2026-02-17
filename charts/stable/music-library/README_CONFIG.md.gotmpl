@@ -1,0 +1,29 @@
+{{- define "custom.custom.configuration.header" -}}
+## Custom configuration
+{{- end -}}
+
+{{- define "custom.custom.configuration" -}}
+{{ template "custom.custom.configuration.header" . }}
+
+### Music Assistant Integration
+
+To connect music-library to Music Assistant, you need to provide the Music Assistant server URL and token:
+
+```yaml
+env:
+  ML_MUSIC_ASSISTANT_URL: "http://music-assistant:8095"
+  ML_MUSIC_ASSISTANT_TOKEN: "your-token-here"
+```
+
+### Persistence
+
+To persist data, enable the persistence volume:
+
+```yaml
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+    size: 1Gi
+```
+{{- end -}}

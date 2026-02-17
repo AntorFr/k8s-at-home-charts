@@ -1,0 +1,56 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: ghcr.io/antorfr/music-library
+  # -- image tag
+  # @default -- chart.appVersion
+  tag:
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [music-library documentation](https://github.com/AntorFr/music-library) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Database URL for music-library
+  ML_DATABASE_URL: "sqlite+aiosqlite:///data/library.db"
+  # -- Directory for storing album covers
+  ML_COVERS_DIR: "data/covers"
+  # -- Music Assistant server URL
+  ML_MUSIC_ASSISTANT_URL: ""
+  # -- Music Assistant authentication token
+  ML_MUSIC_ASSISTANT_TOKEN: ""
+  # -- Home Assistant server URL (for future integration)
+  ML_HOME_ASSISTANT_URL: ""
+  # -- Home Assistant authentication token
+  ML_HOME_ASSISTANT_TOKEN: ""
+  # -- Enable debug mode
+  ML_DEBUG: "false"
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      http:
+        port: 8000
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  data:
+    enabled: false
+    mountPath: /app/data
